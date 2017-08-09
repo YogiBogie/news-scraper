@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+
+NewsScraper::CLI.new.call
