@@ -8,5 +8,7 @@ class NewsScraper::CLI
 
   def show_articles
     puts "DEF SHOW ARTICLES:"
+    site = Nokogiri::HTML('www.nbcnews.com')
+    puts site
   end
 end
