@@ -1,3 +1,4 @@
 #!/usr/bin/env ruby
+require './lib/news_scraper'
 
 NewsScraper::CLI.new.call
