@@ -8,7 +8,10 @@ class NewsScraper::CLI
 
   def show_articles
     puts "DEF SHOW ARTICLES:"
-    site = Nokogiri::HTML('www.nbcnews.com')
-    puts site
+    site = Nokogiri::HTML(open('http://www.nbcnews.com'))
+    arr = []
+    headings = site.css(".container-gutter .container .panel-group")
+    headings.each{|link| arr << link.css(".panel-group_header .item-heading_group-wrapper .item-heading.item-heading_group").text.strip}
+    arr[0] == arr[0].gsub("Latest","")
   end
 end
