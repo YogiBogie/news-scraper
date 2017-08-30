@@ -8,9 +8,7 @@ class NewsScraper::HeadlineScraper
     @item = []
     i=0
     articles.each do |link|
-      @item[i] = NewsScraper::ArticleScraper.new
-      @item[i].title = link.text.strip
-      #@item.url =
+      @item[i] = NewsScraper::ArticleScraper.new(@noko)
       @item[i].save
       i+=1
     end
