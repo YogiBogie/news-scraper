@@ -2,7 +2,7 @@ class NewsScraper::CLI
 
   def call
     puts "Welcome to the News Scraper!"
-    puts "Below is a list of news items you can select from."
+    puts "Below is a list of news sections you can select from."
     if NewsScraper::HeadlineScraper.all.size == 0
       homepage = NewsScraper::HomepageScraper.new
     end
@@ -17,7 +17,10 @@ class NewsScraper::CLI
       puts "Sorry but your entry does not match the options listed."
     end
     puts "Which article would you like to read?"
-    entry = gets.strip
+    entry = gets.strip.to_i
+    if entry > 0 && entry < NewsScraper::HeadlineScraper.all[option.to_i - 1].item.size
+      NewsScraper::HeadlineScraper.all[option.to_i - 1].item[entry - 1].url
+    end
   end
 
 

@@ -9,6 +9,9 @@ class NewsScraper::HeadlineScraper
     i=0
     articles.each do |link|
       @item[i] = NewsScraper::ArticleScraper.new(@noko)
+      @item[i].title = link.text.strip
+      #@item[i].url
+      #puts @noko.css("story-link")
       @item[i].save
       i+=1
     end
