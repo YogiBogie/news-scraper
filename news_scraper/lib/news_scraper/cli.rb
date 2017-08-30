@@ -7,13 +7,17 @@ class NewsScraper::CLI
       homepage = NewsScraper::HomepageScraper.new
     end
     homepage.show
+    puts "Please enter the number for the section you would like to see articles from:"
     option = gets.strip
+    puts "Here are all the articles from the section you chose."
     if option.to_i > 0 && option.to_i < NewsScraper::HeadlineScraper.all.size
       articles = NewsScraper::HeadlineScraper.all[option.to_i - 1].item
       articles.each.with_index(1) {|article,idx| puts "#{idx}. #{article.title}"}
     else
       puts "Sorry but your entry does not match the options listed."
     end
+    puts "Which article would you like to read?"
+    entry = gets.strip
   end
 
 

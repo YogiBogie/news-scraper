@@ -9,7 +9,7 @@ class NewsScraper::HeadlineScraper
     i=0
     articles.each do |link|
       @item[i] = NewsScraper::ArticleScraper.new
-      @item[i].title = link.css(".item-heading").text.strip
+      @item[i].title = link.text.strip
       #@item.url =
       @item[i].save
       i+=1
