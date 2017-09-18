@@ -1,5 +1,5 @@
 class NewsScraper::ArticleScraper
-  attr_accessor :title, :noko, :url, :date, :heading, :author, :p_text
+  attr_accessor :title, :noko, :url, :date, :heading, :author, :p_txt
   @@all=[]
 
   def initialize(noko=nil)
@@ -8,16 +8,24 @@ class NewsScraper::ArticleScraper
 
   def scrape
     site = Nokogiri::HTML(open(self.url))
-    @heading = site.css("h1").text
-    @date = site.css(".timestamp_article").text
-    @author = site.css(".byline_author").text
-    @p_text = site.css("p").text
+    if self.url.include?("nbcsports.com")
+      @heading = site.css(".entry-title").text
+    else
+      @heading = site.css("h1").text
+      @date = site.css(".timestamp_article").text
+      @author = site.css(".byline_author").text
+      ptext = site.css("p")
+      @p_txt =""
+      ptext.each do |x|
+        @p_txt += "\n#{x.text}"
+      end
+    end
+
     puts heading
     puts "\tPosted: #{date}"
     puts "\tAuthor or Original News Site: #{author}"
-    p_text.each do |ptext|
-      puts ptext
-    end
+    puts @p_txt
+
   end
 
   def self.all
