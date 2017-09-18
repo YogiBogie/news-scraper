@@ -13,7 +13,8 @@ class NewsScraper::HeadlineScraper
           if a.css("h3").text.strip.length > 0
             @item[i] = NewsScraper::ArticleScraper.new(@noko)
             @item[i].title = a.css("h3").text.strip
-            @item[i].url = a['href']
+            url_text = a['href']
+            url_text.include?(".com") ? @item[i].url = url_text : @item[i].url = "https://www.nbcnews.com" + url_text
             @item[i].save
             i+=1
           end
@@ -21,7 +22,7 @@ class NewsScraper::HeadlineScraper
         end
       end
     end
-end
+  end
 
   def self.all
     @@all
