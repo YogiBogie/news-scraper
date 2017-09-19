@@ -10,11 +10,7 @@ class NewsScraper::CLI
     end
     @homepage.show
     self.showSections
-    puts "Which article would you like to read?"
-    entry = gets.strip.to_i
-    if entry > 0 && entry < NewsScraper::HeadlineScraper.all[@option.to_i - 1].item.size
-      puts NewsScraper::HeadlineScraper.all[option.to_i - 1].item[entry - 1].scrape
-    end
+    self.showArticles
   end
 
   def showSections
@@ -29,6 +25,14 @@ class NewsScraper::CLI
       else
         puts "Sorry but your entry does not match the options listed."
       end
+    end
+  end
+
+  def showArticles
+    puts "Which article would you like to read?"
+    entry = gets.strip.to_i
+    if entry > 0 && entry < @headline[@option.to_i - 1].item.size
+      puts @headline[@option.to_i - 1].item[entry - 1].scrape
     end
   end
 

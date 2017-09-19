@@ -28,7 +28,7 @@ class NewsScraper::ArticleScraper
     end
 
     puts heading
-    if @date.gsub != nil
+    if @date != nil
       puts "\tPosted: #{date}"
     end
     puts "\tAuthor or Original News Site: #{author}"
