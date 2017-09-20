@@ -3,14 +3,20 @@ class NewsScraper::CLI
 
   def call
     puts "Welcome to the News Scraper!"
-    puts "Below is a list of news sections you can select from."
-    @headline = NewsScraper::HeadlineScraper.all
-    if @headline.size == 0
-      @homepage = NewsScraper::HomepageScraper.new
+    input = nil
+    while input == nil || input.downcase == "y"
+      puts "Below is a list of news sections you can select from."
+      @headline = NewsScraper::HeadlineScraper.all
+      if @headline.size == 0
+        @homepage = NewsScraper::HomepageScraper.new
+      end
+      @homepage.show
+      self.showSections
+      self.showArticles
+      puts "Would you like to see the list of news sections again?  Type 'Y' to see the list again, type in 'N' to quit program."
+      input = gets.strip
     end
-    @homepage.show
-    self.showSections
-    self.showArticles
+    puts "Goodbye"
   end
 
   def showSections
@@ -30,9 +36,14 @@ class NewsScraper::CLI
 
   def showArticles
     puts "Which article would you like to read?"
-    entry = gets.strip.to_i
-    if entry > 0 && entry < @headline[@option.to_i - 1].item.size
-      puts @headline[@option.to_i - 1].item[entry - 1].scrape
+    entry = 0
+    while entry < 1 || entry > @headline[@option.to_i - 1].item.size
+      entry = gets.strip.to_i
+      if entry > 0 && entry <= @headline[@option.to_i - 1].item.size
+        puts @headline[@option.to_i - 1].item[entry - 1].scrape
+      else
+        puts "Your entry doesn't match the list of articles, please re-enter your selection."
+      end
     end
   end
 
