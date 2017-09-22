@@ -29,7 +29,7 @@ class NewsScraper::CLI
         articles = @headline[@option.to_i - 1].item
         articles.each.with_index(1) {|article,idx| puts "#{idx}. #{article.title}"}
       else
-        puts "Sorry but your entry does not match the options listed."
+        puts "Sorry but your entry does not match the options listed.  Please re-enter your answer."
       end
     end
   end
