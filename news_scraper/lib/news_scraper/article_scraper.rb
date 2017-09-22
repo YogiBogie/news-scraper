@@ -62,14 +62,9 @@ class NewsScraper::ArticleScraper
   end
 
   def openUrl
-    puts "This article is a video, would you like to open this in browswer?"
-    input = gets.strip
-    if input.downcase == 'y'
-      puts "Will open in browswer"
-      #Launchy.open('https://nbcnews.com')
-      #system("start https://nbcnews.com")
-      #start chrome
-    end
+    puts "This article is in video format.  Please click on the link below to view the video."
+    puts "Please click here: #{self.url}"
+
   end
 
   def printArticle
