@@ -19,16 +19,21 @@ class NewsScraper::ArticleScraper
     when /better/
       self.scrapeBetter
     when /nbcnews.com/
-      @heading = @noko.css("h1").text
-      @date = @noko.css(".timestamp_article").text
-      @author = @noko.css(".byline_author").text
-      ptext = @noko.css("p")
-      @p_txt =""
-      ptext.each do |x|
-        @p_txt += "\n#{x.text}"
-      end
+      self.scrapeNBCNews
     end
 
+  end
+
+  def scrapeNBCNews
+    @heading = @noko.css("h1").text
+    @date = @noko.css(".timestamp_article").text
+    @author = @noko.css(".byline_author").text
+    ptext = @noko.css("p")
+    @p_txt =""
+    ptext.each do |x|
+      @p_txt += "\n#{x.text}"
+    end
+    self.printArticle
   end
 
   def scrapeSports
@@ -41,6 +46,7 @@ class NewsScraper::ArticleScraper
     ptext.each do |x|
       @p_txt += "\n#{x.text}"
     end
+    self.printArticle
   end
 
   def scrapeBetter
@@ -52,6 +58,7 @@ class NewsScraper::ArticleScraper
     ptext.each do |x|
       @p_txt += "\n#{x.text}"
     end
+    self.printArticle
   end
 
   def openUrl
