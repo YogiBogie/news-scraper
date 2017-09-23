@@ -14,6 +14,9 @@ class NewsScraper::HomepageScraper
         headline.noko = link
         headline.title = link.css(".panel-group_header .item-heading.item-heading_group").first.text.strip
         headline.save
+        if headline.title.include?("Local")
+          headline.delete #Will delete Local news as an option because Local news has not been set on NBCNEWS site.
+        end
       end
     end
     NewsScraper::HeadlineScraper.all.each.with_index(1){|heading, idx| puts  "#{idx}. #{heading.title}"}

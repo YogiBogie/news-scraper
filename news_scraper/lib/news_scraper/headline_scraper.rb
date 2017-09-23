@@ -32,4 +32,8 @@ class NewsScraper::HeadlineScraper
     @@all << self
   end
 
+  def delete
+    @@all.pop
+  end
+
 end

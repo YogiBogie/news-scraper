@@ -20,6 +20,8 @@ class NewsScraper::ArticleScraper
       self.scrapeBetter
     when /nbcnews.com/
       self.scrapeNBCNews
+    when /local/
+      self.scrapeLocal
     end
 
   end
