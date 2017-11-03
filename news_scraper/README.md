@@ -2,9 +2,16 @@
 
 Welcome to NewsScraper CLI Data Scraper.  This scraper is designed to scrape news stories from the https://NBCNews.com website.  
 
-- Once users run NewsScraper they will be presented with a numbered list of all 'Headlines' on the NBCNews site and will be asked to select which headline they would like to read articles from.
-- User will choose a headline by entering number of headline they are interested.
-- Once they enter the number of the headline they wish to see articles about they will be presented with a numbered list of articles from which to choose.  
+Step 1 - User runs NewsScraper Data Gem.
+Step 2 - Once users run NewsScraper they will be presented with a numbered list of all 'Headlines' on the NBCNews site and will be asked to select which headline they would like to read articles from.
+Step 3 - User will choose a headline by entering number of headline they are interested.
+Step 4 - Once they enter the number of the headline they wish to see articles about they will be presented with a numbered list of articles from which to choose.  
+Step 5 - User chooses which article they would like to read/view
+Step 6 - Program will determine if article is text based or video.  
+  Step 6a - If video, user will be given link to click on to open video in browswer
+  Step 6b - If text based, user will be shown article title, author/date published (if applicable) and article text
+Step 7 - User will be asked if they would like to list of headlines or if they wish to exit
+Step 8 - If user wishes to see list again then we go back to Step 2 otherwise program ends
 
 ## Installation
 
