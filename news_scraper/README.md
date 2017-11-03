@@ -1,8 +1,10 @@
 # NewsScraper
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/news_scraper`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to NewsScraper CLI Data Scraper.  This scraper is designed to scrape news stories from the https://NBCNews.com website.  
 
-TODO: Delete this and the text above, and describe your gem
+- Once users run NewsScraper they will be presented with a numbered list of all 'Headlines' on the NBCNews site and will be asked to select which headline they would like to read articles from.
+- User will choose a headline by entering number of headline they are interested.
+- Once they enter the number of the headline they wish to see articles about they will be presented with a numbered list of articles from which to choose.  
 
 ## Installation
 
@@ -33,4 +35,3 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/YogiBogie/news_scraper.
-
