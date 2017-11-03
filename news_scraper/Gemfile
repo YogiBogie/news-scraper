@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
 
 # Specify your gem's dependencies in news_scraper.gemspec
-gemspec
+#gemspec
 gem 'news_scraper'
